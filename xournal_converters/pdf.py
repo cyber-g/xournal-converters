@@ -6,7 +6,7 @@ from reportlab.lib.colors import toColor
 from reportlab.pdfbase._fontdata import standardFonts
 from reportlab.lib.utils import ImageReader
 from base64 import b64decode
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfReader, PdfWriter
 from io import BytesIO
 import gzip, sys, os.path, click
 
@@ -156,11 +156,11 @@ def main():
         else:
             # open PDF background
             dest.seek(0)
-            pdf_journal = PdfFileReader(dest)
-            pdf_background = PdfFileReader(open(pdf_background_filename, 'rb'))
+            pdf_journal = PdfReader(dest)
+            pdf_background = PdfReader(open(pdf_background_filename, 'rb'))
 
             # merge journal and background
-            pdf_writer = PdfFileWriter()
+            pdf_writer = PdfWriter()
             for pageno, _ in enumerate(xml.getroot().iter('page')):
                 # page has PDF background?
                 if pageno in pdf_background_pages:
