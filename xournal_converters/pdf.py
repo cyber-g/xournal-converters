@@ -167,7 +167,7 @@ def main():
                     pdf_pageno = pdf_background_pages[pageno]
 
                     page = pdf_background.pages[pdf_pageno]
-                    page.mergePage(pdf_journal.pages[pageno])
+                    page.merge_page(pdf_journal.pages[pageno])
                 else:
                     page = pdf_journal.pages[pageno]
                 pdf_writer.addPage(page)
