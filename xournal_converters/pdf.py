@@ -170,7 +170,7 @@ def main():
                     page.merge_page(pdf_journal.pages[pageno])
                 else:
                     page = pdf_journal.pages[pageno]
-                pdf_writer.addPage(page)
+                pdf_writer.add_page(page)
 
     # print warnings
     if warnings:
