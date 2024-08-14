@@ -166,10 +166,10 @@ def main():
                 if pageno in pdf_background_pages:
                     pdf_pageno = pdf_background_pages[pageno]
 
-                    page = pdf_background.getPage(pdf_pageno)
-                    page.mergePage(pdf_journal.getPage(pageno))
+                    page = pdf_background.pages[pdf_pageno]
+                    page.mergePage(pdf_journal.pages[pageno])
                 else:
-                    page = pdf_journal.getPage(pageno)
+                    page = pdf_journal.pages[pageno]
                 pdf_writer.addPage(page)
 
     # print warnings
